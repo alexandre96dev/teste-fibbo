@@ -65,6 +65,11 @@ export const TodoList = () => {
     setTodo(response.data);
   };
   
+  const deleteTask = async (todoId: number) => {  
+    await axios.delete(`http://localhost:8080/todo/${todoId}`);
+    const response = await axios.get<Todo[]>('http://localhost:8080/todo');
+    setTodo(response.data);
+  };
     const closeDetailsModal = () => {
         setSelectedTodo(undefined)
         setIsDetailsModalOpen(false);
@@ -77,8 +82,8 @@ export const TodoList = () => {
         <div className="flex flex-col items-center min-h-screen bg-gray-100 p-4 space-y-4">
             <div className="w-full max-w-4xl flex justify-end mb-4">
                 <ButtonAddTodo onClick={() => setIsModalOpen(true)} />
-          {isModalOpen && <Modal closeModal={handleModalClose} todo={selectedTodo} />}
-                  { !isModalOpen && isDetailsModalOpen && <ModalTodoDetails todo={selectedTodo}  closeModal={closeDetailsModal}/>}
+                {isModalOpen && <Modal closeModal={handleModalClose} todo={selectedTodo} />}
+                { !isModalOpen && isDetailsModalOpen && <ModalTodoDetails todo={selectedTodo}  closeModal={closeDetailsModal}/>}
             </div>
             <div className="overflow-x-auto w-full max-w-4xl">
                 <table className="min-w-full divide-y divide-gray-300 bg-white shadow-lg rounded-lg">
@@ -115,6 +120,12 @@ export const TodoList = () => {
                                   >
                                       Finalizar
                                   </button>
+                                  <button
+                                      onClick={() => deleteTask(todo.id)}
+                                      className="bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded"
+                                  >
+                                      Excluir
+                                  </button>  
                               </td>
                             </tr>
                         ))}

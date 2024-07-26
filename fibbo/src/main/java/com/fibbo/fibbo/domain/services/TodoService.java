@@ -71,10 +71,8 @@ public class TodoService {
 
     public ResponseEntity<List<Todo>> getAll() {
         List<Todo> todoList = todoRepository.findAll();
-        if (!todoList.isEmpty()) {
-            return ResponseEntity.ok(todoList);
-        }
-        return ResponseEntity.notFound().build();
+       
+        return ResponseEntity.ok(todoList);
     }
 
     @Transactional
