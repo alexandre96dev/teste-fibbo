@@ -1,5 +1,3 @@
-# README para Tabela `todo`
-
 ## Descrição
 
 Este documento fornece uma visão geral sobre a tabela `todo` que armazena informações sobre tarefas. A tabela `todo` foi criada para suportar operações CRUD (Create, Read, Update, Delete) em um sistema de gerenciamento de tarefas.
