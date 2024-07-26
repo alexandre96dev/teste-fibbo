@@ -15,6 +15,6 @@ CREATE TABLE `todo` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-## Estrutura de pastas
+## Estrutura da Tabela
 
-O projeto do front-end se encontra na pasta "front-end" e o back-end na pasta ""
+O projeto do front-end se encontra na pasta "front-end" e o back-end na pasta "fibbo"
